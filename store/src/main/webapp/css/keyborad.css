@@ -1,0 +1,49 @@
+@CHARSET "UTF-8";
+#prodKeyborad #prodMain{
+	background-color:rgba(215, 215, 234, .7);
+	text-align:center;
+	padding:3em;
+}
+/*#prodKeyborad #prodMain 內的div 樣式*/
+#prodKeyborad #prodMain div{
+	border:1px solid gray;
+	padding:5em;
+}
+/*#prodKeyborad #prodMain div 滑鼠滑入*/
+#prodKeyborad #prodMain div:hover{
+	background-color:white;
+	transition-delay: 0s;
+	transition-duration: 2s;
+	transition-property: all;
+	transition-timing-function: ease;
+}
+
+
+/* Effect 2: Move Up */
+
+.grid-lod.effect-2 img {
+
+	-webkit-transform: translateY(200px);
+
+	transform: translateY(200px);
+
+	-webkit-animation: moveUp 0.65s ease forwards;
+
+	animation: moveUp 0.65s ease forwards;
+
+}
+
+@-webkit-keyframes moveUp {
+	0% { }
+
+	100% { -webkit-transform: translateY(0); opacity: 1; }
+}
+
+@keyframes moveUp {
+	0% { }
+
+	100% { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; }
+}
+
+
+

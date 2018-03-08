@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/2/24 ?U?? 03:37:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="demo.model.Shopmasters" table="shopmasters" catalog="GamingStore">
+        <id name="mid" type="string">
+            <column name="mid" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="pwd" type="string">
+            <column name="pwd" length="10" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="10" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="30" not-null="true" />
+        </property>
+        <property name="sex" type="string">
+            <column name="sex" length="4" not-null="true" />
+        </property>
+        <property name="isTerminate" type="boolean">
+            <column name="isTerminate" not-null="true" />
+        </property>
+        <property name="rating" type="boolean">
+            <column name="rating" not-null="true" />
+        </property>
+        <property name="modifyname" type="string">
+            <column name="modifyname" length="10" />
+        </property>
+        <property name="modifyDate" type="timestamp">
+            <column name="modifyDate" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

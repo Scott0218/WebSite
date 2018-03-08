@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="GamingStore" match-name="members"/>
+  <table-filter match-catalog="GamingStore" match-name="ordermessage"/>
+  <table-filter match-catalog="GamingStore" match-name="orders"/>
+  <table-filter match-catalog="GamingStore" match-name="ordersDetail"/>
+  <table-filter match-catalog="GamingStore" match-name="products"/>
+  <table-filter match-catalog="GamingStore" match-name="productsimage"/>
+  <table-filter match-catalog="GamingStore" match-name="shopmasters"/>
+</hibernate-reverse-engineering>

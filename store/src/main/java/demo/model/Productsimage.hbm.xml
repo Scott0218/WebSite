@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/2/24 ?U?? 03:37:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="demo.model.Productsimage" table="productsimage" catalog="GamingStore">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="pid" type="string">
+            <column name="pid" length="20" not-null="true" />
+        </property>
+        <property name="photo" type="binary">
+            <column name="photo" />
+        </property>
+    </class>
+</hibernate-mapping>

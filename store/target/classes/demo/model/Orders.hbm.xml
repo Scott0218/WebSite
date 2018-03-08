@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018/2/24 ?U?? 03:37:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="demo.model.Orders" table="Orders" catalog="GamingStore">
+        <id name="oid" type="string">
+            <column name="oid" length="12"/>
+            <generator class="assigned" />
+        </id>
+        
+        <property name="saledate" type="timestamp">
+            <column name="saledate" length="19" not-null="true" />
+        </property>
+        
+        <many-to-one name="Members" class="demo.model.Members" fetch="select">
+        	<column name="mid" ></column>
+        </many-to-one>
+        
+        <set name="OrdersDetail" table="OrdersDetail" inverse="true" lazy="false" fetch="select" >
+        	<key>
+        		<column name="oid"></column>
+        	</key>
+        	<one-to-many class="demo.model.OrdersDetail"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

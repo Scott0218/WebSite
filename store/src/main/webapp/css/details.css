@@ -1,0 +1,226 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: '微軟正黑體', sans-serif;
+	overflow-x: hidden;
+}
+
+.products-contact {
+	padding: 36px;
+	background-color: white;
+	height: 480px;
+	width: 600px;
+}
+
+.products-contact>.add-shop>.btn-primary {
+	background-color: orange;
+	border-color: pink;
+}
+
+
+.products-contact>.add-shop>.btn-primary:hover, .btn-primary:active,
+	.btn-primary:focus, .btn-primary:active:focus {
+	background-color: rgb(255, 128, 0);
+	border-color: rgba(255, 128, 0, .6);
+}
+
+.details {
+	padding-top: 2em;
+	background-color: rgba(255, 255, 204, 0.8);
+}
+
+.purchase-product__list>li {
+	list-style-type: square;
+}
+
+.products-contact>.add-shop {
+	margin-top: 3em;
+}
+
+.div1>.nav>li {
+	font-color: #000;
+	font-size: 28px;
+}
+
+.div1>.nav>li:hover {
+	color: rgba(255, 128, 0, .6);
+}
+
+/*add*/
+.accordian-wrapper {
+	padding: 0 0;
+	background: #fff
+}
+
+@media ( min-width : 768px) {
+	.accordian-wrapper {
+		padding: 0 0 6em
+	}
+}
+
+.accordion-spacer {
+	padding: 3em 0;
+	background: #fff
+}
+
+@media ( min-width : 768px) {
+	.accordion-spacer {
+		padding: 7em 0 6em
+	}
+}
+
+.accordion {
+	background: #fff;
+	padding-bottom: 10px
+}
+
+.accordion+.accordion {
+	padding-top: 8px
+}
+
+.accordion.closed .accordion__toggle {
+	background-color: #eceaeb;
+	color: #565656;
+	letter-spacing: 0.5px
+}
+
+.accordion.closed .accordion__toggle:hover {
+	background-color: rgba(43, 41, 42, 0.9);
+	color: #fff
+}
+
+.accordion.closed .accordion__toggle:hover::before, .accordion.closed .accordion__toggle:hover::after
+	{
+	background: #fff
+}
+
+.accordion.closed .accordion__toggle::before, .accordion.closed .accordion__toggle::after
+	{
+	background: #2b292a
+}
+
+.accordion.closed .accordion__toggle::before {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg)
+}
+
+.accordion.closed .accordion__toggle::after {
+	-webkit-transform: rotate(90deg);
+	transform: rotate(90deg)
+}
+
+.accordion.closed .accordion__section {
+	max-height: 0;
+	-webkit-transition-duration: 300ms;
+	transition-duration: 300ms
+}
+
+.accordion__toggle {
+	-webkit-transition: all 200ms ease;
+	transition: all 200ms ease;
+	-webkit-transition-property: color, background-color;
+	transition-property: color, background-color;
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 15px 20px;
+	background-color: #2b292a;
+	color: #fff;
+	text-transform: capitalize;
+	line-height: 1;
+	letter-spacing: 0.5px;
+	font-weight: 400;
+	font-size: 2rem;
+	cursor: pointer
+}
+
+@media ( min-width : 768px) {
+	.accordion__toggle {
+		font-size: 2.4rem
+	}
+}
+
+.accordion__toggle:hover {
+	background-color: rgba(43, 41, 42, 0.9)
+}
+
+.accordion__toggle::before, .accordion__toggle::after {
+	-webkit-transition: all 200ms ease;
+	transition: all 200ms ease;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	transition-property: transform;
+	transition-property: transform, -webkit-transform;
+	content: '';
+	position: absolute;
+	top: 14px;
+	right: 30px;
+	height: 18px;
+	width: 2px;
+	background-color: #fff
+}
+
+@media ( min-width : 992px) {
+	.accordion__toggle::before, .accordion__toggle::after {
+		height: 25px
+	}
+}
+
+.accordion__toggle::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg)
+}
+
+.accordion__toggle::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+
+.accordion__section {
+	-webkit-transition: max-height 650ms ease;
+	transition: max-height 650ms ease;
+	background: #fff;
+	max-height: 1000px;
+	overflow: hidden
+}
+
+.accordion__section__inner {
+	padding: 0 20px 30px;
+}
+
+.data-point {
+	padding-top: 8px;
+	padding-bottom: 5px;
+	border-top: 1px solid #eceaeb;
+	font-family: "Replica Pro", Helvetica, Arial, sans-serif ,"微軟正黑體";
+	font-size: 1.6rem
+}
+
+@media ( min-width : 992px) {
+	.data-point {
+		padding-top: 18px;
+		padding-bottom: 15px
+	}
+}
+
+.data-point+.data-point {
+	margin-top: 0
+}
+
+.data-point__label {
+	margin: 0;
+	color: #2b292a;
+	line-height: 1.6;
+	font-size: 1.6rem;
+	font-weight: 400
+}
+
+.data-point__value {
+	margin: 0;
+	color: #565656;
+	line-height: 1.6
+}
+
+.data-point__value a {
+	color: #fc4c02
+}

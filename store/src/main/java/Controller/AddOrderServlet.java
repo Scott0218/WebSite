@@ -55,8 +55,7 @@ public class AddOrderServlet extends HttpServlet {
 		request.setAttribute("orderDetail", orderInfo);
 		//session內容
 		HttpSession s = request.getSession();
-		s.removeAttribute("userlist");
-		s.removeAttribute("totalPrice");
+		s.invalidate();
 		//導向畫面
 		request.getRequestDispatcher("/pages/shopsuccess.jsp").forward(request, response);
 		return;

@@ -89,7 +89,7 @@
               <div class="bg-faded rounded p-5">
                 <h2 class="section-heading mb-4">
                 <c:if test="${!empty user}">
-                  	<span class="section-heading-upper py-3">$會員：{user.name}　謝謝您的購買</span>
+                  	<span class="section-heading-upper py-3">謝謝您的購買</span>
                 </c:if>  
                   <span class="section-heading-lower">歡迎您再次光臨!!</span>
                 </h2> 

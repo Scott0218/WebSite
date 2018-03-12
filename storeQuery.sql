@@ -127,6 +127,10 @@ INSERT INTO OrdersDetail VALUES(6,'201701220004','Sensei 310',1,99.99)
 
 select * from OrdersDetail
 
+delete from Orders where mid is null
+
+delete from OrdersDetail where oid is null
+
 --創建聯繫資料表
 CREATE TABLE ContactUs(
 Cid INT NOT NULL auto_increment,

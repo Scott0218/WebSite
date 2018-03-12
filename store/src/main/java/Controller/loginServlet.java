@@ -40,7 +40,7 @@ public class loginServlet extends HttpServlet {
 		
 		String [] parameters = {id,pwd};
 		UserInterServices ui = new UserServices();
-		List<Shopmasters> list = ui.check("FROM ShopMasters WHERE mid = ? AND pwd = ?", parameters);
+		List<Shopmasters> list = ui.check("from ShopMasters WHERE mid = ? AND pwd = ?", parameters);
 		
 		System.out.println(list.size());
 		String path = request.getContextPath();

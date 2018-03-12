@@ -12,14 +12,12 @@ public class Orders implements java.io.Serializable {
 
 	private String oid;
 	private String mid;
-	private Date saledate;
+	private String saledate;
 	private Members members;
 	
 	private Set<OrdersDetail> OrdersDetail = new HashSet<OrdersDetail>(0);
 	
-
 	
-
 	public Set<OrdersDetail> getOrdersDetail() {
 		return OrdersDetail;
 	}
@@ -39,12 +37,12 @@ public class Orders implements java.io.Serializable {
 	public Orders() {
 	}
 
-	public Orders(String oid, Date saledate) {
+	public Orders(String oid, String saledate) {
 		this.oid = oid;
 		this.saledate = saledate;
 	}
 
-	public Orders(String oid, String mid, Date saledate) {
+	public Orders(String oid, String mid, String saledate) {
 		this.oid = oid;
 		this.mid = mid;
 		this.saledate = saledate;
@@ -66,11 +64,11 @@ public class Orders implements java.io.Serializable {
 		this.mid = mid;
 	}
 
-	public Date getSaledate() {
+	public String getSaledate() {
 		return this.saledate;
 	}
 
-	public void setSaledate(Date saledate) {
+	public void setSaledate(String saledate) {
 		this.saledate = saledate;
 	}
 

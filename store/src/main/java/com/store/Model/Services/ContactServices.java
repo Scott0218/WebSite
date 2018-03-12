@@ -14,6 +14,10 @@ public class ContactServices implements ContactInter{
 	public void Contactsave(String[] str1){
 		ApplicationContext ac = springUtil.getApplicationContext();
 		ContactUs cu = (ContactUs)ac.getBean("ContactUs");
+		cu.setCname(str1[0]);
+		cu.setCmail(str1[1]);
+		cu.setCTel(str1[2]);
+		cu.setCmessage(str1[3]);
 		HibernateUtil.save(cu);
 	}
 }

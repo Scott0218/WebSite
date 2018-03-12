@@ -2,6 +2,8 @@ package com.HiberUtil;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -67,7 +69,29 @@ public class HibernateUtil {
 		return list;
 	}
 	//提供一個統一的修改、刪除方法
-	public static void update(){
+	public static void excuteUpdate(String hql,String []parameters){
+		Session s = null;
+		Transaction tx = null;
+		try {
+			s = openSession();
+			Query query = s.createQuery(hql);
+			// 判斷有無參數綁定
+			if (parameters != null && parameters.length > 0) {
+				for (int i = 0; i < parameters.length; i++) {
+					query.setParameter(i, parameters[i]);
+				}
+			}
+			tx = s.beginTransaction();
+			query.executeUpdate();
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException(e.getMessage());
+		} finally {
+			if (s != null && s.isOpen()) {
+				s.close();
+			}
+		}
 		
 	}
 	//新增方法
@@ -89,4 +113,7 @@ public class HibernateUtil {
 			}
 		}
 	}
+	
+	
+	
 }

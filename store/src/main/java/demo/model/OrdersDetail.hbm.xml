@@ -16,7 +16,7 @@
         <property name="qty" type="int">
             <column name="qty" not-null="true" />
         </property>
-        <property name="price" type="big_decimal">
+        <property name="price" type="float">
             <column name="price" precision="6" not-null="true" />
         </property>
         

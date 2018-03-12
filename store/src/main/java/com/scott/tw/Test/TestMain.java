@@ -1,21 +1,31 @@
 package com.scott.tw.Test;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.store.Model.Services.UserInterServices;
+import com.store.Model.Services.UserServices;
 
-import demo.model.ContactUs;
+import Tools.MyTools;
+import demo.model.Members;
+
+
 
 
 /*
  * 測試區塊
  */
-public class TestMain {
+public class TestMain extends Thread {
 
-	public static void main(String[] args) {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-		ContactUs cu = (ContactUs)ac.getBean("ContactUs");
+	public static void main(String[] args) throws InterruptedException {  
 		
-	}
-	
-	
+		/*UserInterServices uis = new UserServices();
+		MyTools tools = new MyTools();
+		String id = "m0001";
+		String pwd = "m0001";
+		String upwd = tools.md5(pwd);
+		Members mb = uis.checkUser(id,upwd);
+		System.out.println(mb.getMid());*/
+		MyTools mytools = new MyTools();
+		String num = mytools.getOrderNo();
+		System.out.println(num);
+	}  
+	  
 }

@@ -12,17 +12,21 @@
 
 <title>Apex 150 RGB遊戲鍵盤</title>
 
+<!-- Font Awesome -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="../../css/business-casual.min.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/business-casual.min.css" rel="stylesheet">
 
 <!-- Bootstrap core CSS -->
-<link href="../../vendor/bootstrap/css/bootstrap.min.css"
+<link href="<%=request.getContextPath()%>/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 
 <!-- Details CSS -->
-<link href="../../css/details.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/details.css" rel="stylesheet">
 <!-- 通用css -->
-<link href="../../css/current.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/current.css" rel="stylesheet">
 </head>
 <body>
 <div id="div1">
@@ -36,7 +40,7 @@
 	<div class="container">
 		<a
 			class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-			href="#">Gaming Shopping</a>
+			href="../index.jsp">Gaming Shopping</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarResponsive" aria-controls="navbarResponsive"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -46,22 +50,27 @@
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item active px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../../pages/index.jsp">鍵盤 <span class="sr-only">(current)</span>
+					href="<%=request.getContextPath()%>/pages/index.jsp">鍵盤 <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../../pages/mouse.jsp">滑鼠</a></li>
+					href="<%=request.getContextPath()%>/pages/mouse.jsp">滑鼠</a></li>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../../pages/headset.jsp">耳機</a></li>
+					href="<%=request.getContextPath()%>/pages/headset.jsp">耳機</a></li>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../../pages/contact.jsp">聯絡我們</a></li>
+					href="<%=request.getContextPath()%>/pages/contact.jsp">聯絡我們</a></li>
 			</ul>
 			<ul class="navbar-nav navbar-right">
-				<li class="nav-item px-lg-4"><a
-					class="nav-link text-uppercase text-expanded" id="userlogin"
-					href="#">會員登入<i class="fa fa-user-o" style="font-size: 28px"></i></a></li>
+				<c:if test="${empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<%= request.getContextPath() %>/pages/login.jsp">會員登入<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
+				<c:if test="${!empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<c:url value="/signOutServlet"/>">會員登出<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded" href="#"
 					id="side-menubar">購物車<i class="fa fa-shopping-cart"
@@ -76,7 +85,7 @@
 		<div class="row details">
 			<div>
 				<div>
-					<img src="../../images/details/kb_m750_d1.png" alt="">
+					<img src="<%=request.getContextPath()%>/images/details/kb_m750_d1.png" alt="">
 				</div>
 			</div>
 			<div>
@@ -94,18 +103,18 @@
 						<option selected>英文</option>
 					</select>
 					<h2 class="text-left text-info" style="padding-top:28px;">$129.99 <em>美元</em></h2>
-						<div class="add-shop">
-						<form action="<c:url value="/ShopCartServlet"/>" method="post">
-							<button type="submit" class="btn btn-primary btn-block" name="test" value="006" id="btn1">加入購物車</button>
+					<div class="add-shop">
+						<form action="<c:url value="/BuyDispatcherServlet"/>" method="get" >
+							<button class="btn btn-warning btn-block" name="product" value="006" id="btn1">加入購物車</button>
 						</form>
-						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- 規格說明 -->
 	<section class="accordian-wrapper"> 
-	<section class="accordion closed js-collapsible" role="region">
+	<section class="accordion js-collapsible" role="region">
 	<div class="container container--large">
 		<h1 class="text-center text-primary" style="padding:28px">規格</h1>
 		<h2 class="accordion__toggle js-collapsible-toggle" role="button">設計</h2>
@@ -229,7 +238,7 @@
 		<h1 class="text-center text-primary" style="padding:28px">特色</h1>
 		<div class="row">
 			<div class="col-md-6">
-				<img src="../../images/details/ss.jpg" alt="">
+				<img src="<%=request.getContextPath()%>/images/details/ss.jpg" alt="">
 			</div>
 			<div class="col-md-6" style="background-color:white;">
 				<h2 class="text-center text-dark m-3">QX2 機械式按鍵</h2>
@@ -248,36 +257,38 @@
         <div id="sidebar-wrapper">
         	<div class="container">
 	        	<h1 class="text-left text-primary y-2">購物車<small>(商品)</small></h1>
-	        	<table class="table table-striped">
+	            <c:if test="${!empty mycart }">
+	            	<table class="table table-dark">
 	        		<tr>
-	        			<td>產品名稱</td>
 	        			<td>產品編號</td>
-	        			<td>單價</td>
+	        			<td>產品名稱</td>
+	        			<td>售價</td>
 	        		</tr>
-	        		<c:if test="${!empty carlist}">
-	        		<c:forEach var="info" items="${carlist}">
+	        		<c:forEach var="info" items="${userlist}">
 	        		<tr>
-	        			<td>${info.name}</td>
 	        			<td>${info.pid}</td>
+	        			<td>${info.name}</td>
 	        			<td>${info.price}</td>
 	        		</tr>
 	        		</c:forEach>
-	        		</c:if>
-	        		<c:if test="${empty carlist}">
-	        			<td><p class="text-center py-2">您的購物車尚無商品</p></td>
-	        		</c:if>
-	        	</table>
-	            <a href="../pages/index.jsp"><button type="button" class="btn btn-info btn-block">開始購物</button></a>
+	        		</table>
+	        		<c:if test="${empty userlist }">
+	            		<a href="../index.jsp"><button type="button" class="btn btn-info btn-block">開始購物</button></a>
+	            	</c:if>
+	        		<c:if test="${!empty userlist}">
+	        			<p class="text-dark text-left">商品總價格:${totalPrice}</p>
+	        			<a class="btn btn-info btn-block" href="<%= request.getContextPath() %>/pages/checkout.jsp">前往結帳</a>
+	        		</c:if>  
+	            </c:if>
             </div>
         </div>
     </div>
     
 	<!-- Bootstrap core JavaScript -->
-	<script src="../../vendor/jquery/jquery.min.js"></script>
-	<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- 通用JS -->
-	<script src="../../js/myjs/detail.js" type="text/javascript"></script>
-	
+	<script src="<%=request.getContextPath()%>/js/myjs/detail.js" type="text/javascript"></script>
 
 </body>
 </html>

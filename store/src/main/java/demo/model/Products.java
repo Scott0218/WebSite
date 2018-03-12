@@ -13,15 +13,25 @@ public class Products implements java.io.Serializable {
 	private String name;
 	private String content;
 	private int typeof;
-	private BigDecimal price;
+	private float price;
 	private int instock;
 	private Date indate;
 	private int invalue;
+	//購買數量
+	private int shoppingNum = 1;
+
+	public int getShoppingNum() {
+		return shoppingNum;
+	}
+
+	public void setShoppingNum(int shoppingNum) {
+		this.shoppingNum = shoppingNum;
+	}
 
 	public Products() {
 	}
 
-	public Products(String pid, String name, String content, int typeof, BigDecimal price, int instock, Date indate,
+	public Products(String pid, String name, String content, int typeof, float price, int instock, Date indate,
 			int invalue) {
 		this.pid = pid;
 		this.name = name;
@@ -65,11 +75,11 @@ public class Products implements java.io.Serializable {
 		this.typeof = typeof;
 	}
 
-	public BigDecimal getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

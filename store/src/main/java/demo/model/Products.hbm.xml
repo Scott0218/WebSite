@@ -17,7 +17,7 @@
         <property name="typeof" type="int">
             <column name="typeof" not-null="true" />
         </property>
-        <property name="price" type="big_decimal">
+        <property name="price" type="float">
             <column name="price" precision="6" not-null="true" />
         </property>
         <property name="instock" type="int">

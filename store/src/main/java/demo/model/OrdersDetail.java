@@ -12,7 +12,7 @@ public class OrdersDetail implements java.io.Serializable {
 	private String oid;
 	private String name;
 	private int qty;
-	private BigDecimal price;
+	private float price;
 	
 	private Orders orders;
 	
@@ -27,13 +27,13 @@ public class OrdersDetail implements java.io.Serializable {
 	public OrdersDetail() {
 	}
 
-	public OrdersDetail(String name, int qty, BigDecimal price) {
+	public OrdersDetail(String name, int qty, float price) {
 		this.name = name;
 		this.qty = qty;
 		this.price = price;
 	}
 
-	public OrdersDetail(String oid, String name, int qty, BigDecimal price) {
+	public OrdersDetail(String oid, String name, int qty, float price) {
 		this.oid = oid;
 		this.name = name;
 		this.qty = qty;
@@ -72,11 +72,11 @@ public class OrdersDetail implements java.io.Serializable {
 		this.qty = qty;
 	}
 
-	public BigDecimal getPrice() {
+	public float getPrice() {
 		return this.price;
 	}
 
-	public void setPrice(BigDecimal price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

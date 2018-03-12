@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,6 +11,11 @@
 <meta name="author" content="Scott">
 
 <title>Arctis 3 Bluetooth 遊戲耳機</title>
+
+<!-- Font Awesome -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="../../css/business-casual.min.css" rel="stylesheet">
@@ -32,43 +38,48 @@
 
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-		<div class="container">
-			<a
-				class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
-				href="#">Gaming Shopping</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav mx-auto">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="../../pages/index.jsp">鍵盤 <span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="../../pages/mouse.jsp">滑鼠</a></li>
-					<li class="nav-item active px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="../../pages/headset.jsp">耳機</a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded"
-						href="../../pages/contact.jsp">聯絡我們</a></li>
-				</ul>
-				<ul class="navbar-nav navbar-right">
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" id="userlogin"
-						href="#">會員登入<i class="fa fa-user-o" style="font-size: 28px"></i></a></li>
-					<li class="nav-item px-lg-4"><a
-						class="nav-link text-uppercase text-expanded" href="#"
-						id="side-menubar">購物車<i class="fa fa-shopping-cart"
-							style="font-size: 28px"></i></a></li>
-				</ul>
-			</div>
+	<div class="container">
+		<a
+			class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+			href="../index.jsp">Gaming Shopping</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarResponsive" aria-controls="navbarResponsive"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav mx-auto">
+				<li class="nav-item px-lg-4"><a
+					class="nav-link text-uppercase text-expanded"
+					href="../index.jsp">鍵盤 <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item px-lg-4"><a
+					class="nav-link text-uppercase text-expanded"
+					href="../mouse.jsp">滑鼠</a></li>
+				<li class="nav-item active px-lg-4"><a
+					class="nav-link text-uppercase text-expanded"
+					href="../headset.jsp">耳機</a></li>
+				<li class="nav-item px-lg-4"><a
+					class="nav-link text-uppercase text-expanded"
+					href="../contact.jsp">聯絡我們</a></li>
+			</ul>
+			<ul class="navbar-nav navbar-right">
+				<c:if test="${empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<%= request.getContextPath() %>/pages/login.jsp">會員登入<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
+				<c:if test="${!empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<c:url value="/signOutServlet"/>">會員登出<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
+				<li class="nav-item px-lg-4"><a
+					class="nav-link text-uppercase text-expanded" href="#"
+					id="side-menubar">購物車<i class="fa fa-shopping-cart"
+						style="font-size: 28px"></i></a></li>
+			</ul>
 		</div>
-		</nav>
+	</div>
+	</nav>
 		<!-- contact -->
 		<div class="container-fluid">
 			<h1 class="text-center text-white">Arctis 3</h1>
@@ -92,8 +103,10 @@
 							$149.99<em>美元</em>
 						</h2>
 						<div class="add-shop">
-							<button type="button" class="btn btn-primary btn-block" name="011">加入購物車</button>
-						</div>
+						<form action="<c:url value="/BuyDispatcherServlet"/>" method="get">
+							<button class="btn btn-warning btn-block" name="product" value="011" id="btn1">加入購物車</button>
+						</form>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -104,7 +117,8 @@
 		<div class="container container--large">
 			<h1 class="text-center text-dark" style="padding: 28px">規格</h1>
 		</div>
-		</section> <section class="accordion closed js-collapsible" role="region">
+		</section> 
+		<section class="accordion js-collapsible" role="region">
 		<div class="container container--large">
 			<h2 class="accordion__toggle js-collapsible-toggle" role="button">喇叭驅動器</h2>
 			<div class="accordion__section">
@@ -136,7 +150,8 @@
 				</div>
 			</div>
 		</div>
-		</section> <section class="accordion closed js-collapsible" role="region">
+		</section> 
+		<section class="accordion js-collapsible closed" role="region">
 		<div class="container container--large">
 			<h2 class="accordion__toggle js-collapsible-toggle" role="button">麥克風</h2>
 			<div class="accordion__section">
@@ -239,28 +254,40 @@
 	</div>
 	<!-- RigthSideNav -->
 	<div id="wrapper">
-		<div id="sidebar-wrapper">
-			<div class="container">
-				<h1 class="text-left text-primary y-2">
-					購物車<small>(商品)</small>
-				</h1>
-				<p class="text-center py-2">您的購物車尚無商品</p>
-				<a href="../pages/index.jsp"><button type="button"
-						class="btn btn-info btn-block">開始購物</button></a>
-			</div>
-		</div>
-	</div>
+        <div id="sidebar-wrapper">
+        	<div class="container">
+	        	<h1 class="text-left text-primary y-2">購物車<small>(商品)</small></h1>
+	        		            <c:if test="${!empty mycart }">
+	            	<table class="table table-dark">
+	        		<tr>
+	        			<td>產品編號</td>
+	        			<td>產品名稱</td>
+	        			<td>售價</td>
+	        		</tr>
+	        		<c:forEach var="info" items="${userlist}">
+	        		<tr>
+	        			<td>${info.pid}</td>
+	        			<td>${info.name}</td>
+	        			<td>${info.price}</td>
+	        		</tr>
+	        		</c:forEach>
+	        		</table>
+	        		<c:if test="${empty userlist }">
+	            		<a href="../index.jsp"><button type="button" class="btn btn-info btn-block">開始購物</button></a>
+	            	</c:if>
+	        		<c:if test="${!empty userlist}">
+	        			<p class="text-dark text-left">商品總價格:${totalPrice}</p>
+	        			<a class="btn btn-info btn-block" href="<%= request.getContextPath() %>/pages/checkout.jsp">前往結帳</a>
+	        		</c:if>
+	            </c:if>
+            </div>
+        </div>
+    </div>
 	<!-- Bootstrap core JavaScript -->
 	<script src="../../vendor/jquery/jquery.min.js"></script>
 	<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- 通用JS -->
 	<script src="../../js/myjs/detail.js" type="text/javascript"></script>
-	<script>
-		$(document).ready(function() {
-			$('.js-collapsible').click(function() {
-				$(this).toggleClass('closed');
-			})
-		})
-	</script>
+	
 </body>
 </html>

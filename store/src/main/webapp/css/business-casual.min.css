@@ -140,6 +140,7 @@ p {
 	background-color: rgba(255, 255, 255, .85)
 }
 
+/*
 .cta .cta-inner:before {
 	border-radius: .5rem;
 	content: '';
@@ -149,7 +150,7 @@ p {
 	left: -.5rem;
 	right: -.5rem;
 	border: .25rem solid rgba(255, 255, 255, .85)
-}
+}*/
 
 @media ( min-width :992px) {
 	.about-heading .about-heading-img {
@@ -210,7 +211,7 @@ p {
 }
 
 .footer {
-	background-color: rgba(38, 38, 38 , .9)
+	background-color: rgba(38, 38, 38 , .9);
 }
 
 .text-primary {
@@ -222,6 +223,7 @@ p {
 }
 
 .btn {
+	cursor:pointer;
 	box-shadow: 0 3px 3px 0 rgba(33, 37, 41, .1)
 }
 
@@ -246,16 +248,47 @@ p {
   left:24px;
   width: 360px;
 }
-/*會員登入*/
-.memberBox{
-	width:360px;
-	height:400px;
-	background-color:white;	
-	position:relative;
-	top:2rem;
-	left:50rem;
+/*會員登入畫面*/
+#memberBox>.container{
+	background-color:rgba(255, 255, 255, .85);
+	border:3px solid coral;
+	margin-top:2em;
+	height:480px;
+	border-radius:20px;
+	margin-bottom:2em;
 }
-.memberBox>#memberinput{
-	padding-top:16px;
-	padding-botton:16px;
+#memberinput>div{
+	padding-top:18px;
+}
+#registerBox>.container{
+	background-color:white;
+	margin-top:2em;
+	margin-bottom:2em;
+}
+#registerBox>.container>div{
+	padding-bottom:16px;
+	margin-top:2em;
+}
+#cc{
+	color:red;
+	font-size:16px;
+}
+/*找尋密碼Box*/
+.forgetBox{
+	background-color:rgba(255, 255, 255, .85);
+	margin:25px;
+	border: 1px solid #ccc;
+	border-radius:28px;
+}
+#div2>.container{
+	width:600px;
+}
+.forgetBox>.main>div{
+	padding:5px 100px 5px 100px;
+}
+.forgetBox>.main>div>.btn{
+	width:222px;
+}
+#pwdBox{
+	width:666px;
 }

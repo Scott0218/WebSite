@@ -41,8 +41,9 @@
     height:45px;
     width:120px;
 }
-
-
+#catelog a>.buy:hover{
+	background:rgba(255,255,255,.6)
+}
 
 @-webkit-keyframes moveUp {
 	0% { }

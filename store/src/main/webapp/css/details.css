@@ -13,10 +13,9 @@ body {
 }
 
 .products-contact>.add-shop>.btn-primary {
-	background-color: orange;
-	border-color: pink;
+	background-color: orange;!important
+	border-color:pink;!important
 }
-
 
 .products-contact>.add-shop>.btn-primary:hover, .btn-primary:active,
 	.btn-primary:focus, .btn-primary:active:focus {

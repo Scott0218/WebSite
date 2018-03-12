@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<!-- Bootstrap core CSS -->
-	<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<%= request.getContextPath() %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Bootstrap core JavaScript -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/jquery/jquery.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="http://connect.facebook.net/zh_TW/all.js"></script>
 <style>
 	.memberBox div{
@@ -25,6 +25,7 @@
 <body>
 <!-- 會員登入 -->
 	<div class="memberBox">
+		
 		<div class="container">
 			<form action="<c:url value="/id"/>" method="post" >
 				<div class="text-left text-dark" id="memberinput">
@@ -41,10 +42,10 @@
 					<div class="form-check">
 						<input type="checkbox" class="form-check-input" id="rbpwd">
 						<label class="form-check-label">記住密碼</label>
-						<button type="button" class="btn btn-link pull-right">忘記密碼</button>
+						<a href="" class="d-flex justify-content-end">忘記密碼</a>
 					</div>
 					<div>
-						<button class="btn btn-primary btn-block" type="submit" id="btn1">提交</button>
+						<button class="btn btn-primary btn-block" type="submit" id="btn1">Gaming 會員登入</button>
 					</div>
 					<br />
 					<div id="fb-root"></div>
@@ -54,9 +55,13 @@
 			</form>
 		</div>
 	</div>
+	
+	
 	<!-- Bootstrap core JavaScript -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/jquery/jquery.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
+	
 	<script>
 		$(document).ready(function(){
 			$('btn1').click(function(){
@@ -75,22 +80,20 @@
 			$('#FBLogin').click(function(){
 				FB.login(function(response) {
 				    if (response.authResponse) {
-				     console.log('Welcome!  Fetching your information.... ');
+				     console.log('Welcome!  Fetching your information<%= request.getContextPath() %><%= request.getContextPath() %> ');
 				      FB.api('/me',{ locale: 'zh_TW', fields: 'name, email,picture' } , function(response) {
 				    	 alert('Welcome, ' + response.name + "!");
 				    	 var userInfo = {"userName" : response.name,"userEmail" :response.email,"userphoto":response.picture};
 				    	 console.log(Object.values(userInfo))
-				    	 window.close('../pages/userLogin.jsp')
+				    	 window.close('<%= request.getContextPath() %>/pages/userLogin.jsp')
 				      });
 				    } else {
 				     console.log('User cancelled login or did not fully authorize.');
 				     //window.close();
 				    }
 				});
-			})
-			
+			})			
 		})
-	
 	</script>
 </body>
 </html>

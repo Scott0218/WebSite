@@ -4,11 +4,15 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context.xsd">
-<bean id="ContactUs" class="demo.model.ContactUs">
-	<property name="Cmail" value="Cmail"></property>
-	<property name="Cname" value="Cname"></property>
-	<property name="CTel" value="CTel"></property>
-	<property name="Cmessage" value="Cmessage"></property>
-</bean>
+    http://www.springframework.org/schema/context/spring-context.xsd">  
+<bean id="ContactUs" class="demo.model.ContactUs"></bean>
+<bean id="Members" class="demo.model.Members"></bean>
+
+<!-- 會員 -->
+<bean id="UserInterServices" class="com.store.Model.Services.UserServices"></bean>
+
+<!-- 工具類 -->
+<bean id="MyTools" class="Tools.MyTools"></bean>
+<!-- 購物車 -->
+<bean id="MyCart" class="Tools.MyCart"></bean>
 </beans>

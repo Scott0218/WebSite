@@ -12,7 +12,7 @@
 <title>Contact Us</title>
 
 <!-- Bootstrap core CSS -->
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%= request.getContextPath() %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Font Awesome -->
 <link
@@ -27,12 +27,12 @@
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="../css/business-casual.min.css" rel="stylesheet">
+<link href="<%= request.getContextPath() %>/css/business-casual.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="../css/contact.css" rel="stylesheet">
+<link href="<%= request.getContextPath() %>/css/contact.css" rel="stylesheet">
 
 <!-- 通用css -->
-<link href="../css/current.css" rel="stylesheet">
+<link href="<%= request.getContextPath() %>/css/current.css" rel="stylesheet">
 </head>
 <body>
 <div id="div1">
@@ -56,21 +56,26 @@
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../pages/index.jsp">鍵盤 <span class="sr-only">(current)</span>
+					href="<%= request.getContextPath() %>/pages/index.jsp">鍵盤 <span class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../pages/mouse.jsp">滑鼠</a></li>
+					href="<%= request.getContextPath() %>/pages/mouse.jsp">滑鼠</a></li>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded"
-					href="../pages/headset.jsp">耳機</a></li>
+					href="<%= request.getContextPath() %>/pages/headset.jsp">耳機</a></li>
 				<li class="nav-item active px-lg-4"><a
-					class="nav-link text-uppercase text-expanded" href="../pages/contact.jsp">聯絡我們</a></li>
+					class="nav-link text-uppercase text-expanded" href="<%= request.getContextPath() %>/pages/contact.jsp">聯絡我們</a></li>
 			</ul>
 			<ul class="navbar-nav navbar-right">
-				<li class="nav-item px-lg-4"><a
-					class="nav-link text-uppercase text-expanded" id="userlogin" href="#">會員登入<i
-						class="fa fa-user-o" style="font-size: 28px"></i></a></li>
+				<c:if test="${empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<%= request.getContextPath() %>/pages/login.jsp">會員登入<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
+				<c:if test="${!empty user}">
+				<li class="nav-item px-lg-4">
+				<a class="nav-link text-uppercase text-expanded" id="userlogin" href="<c:url value="/signOutServlet"/>">會員登出<i class="fa fa-user-o"
+						style="font-size: 28px"></i></a></li></c:if>
 				<li class="nav-item px-lg-4"><a
 					class="nav-link text-uppercase text-expanded" id="side-menubar" href="#">購物車<i
 						class="fa fa-shopping-cart" style="font-size: 28px"></i></a></li>
@@ -83,7 +88,7 @@
 	<div class="container">
 		<div class="intro">
 			<img class="intro-img img-fluid mb-3 mb-lg-0 rounded"
-				src="../images/contact/gaming.jpg" alt="">
+				src="<%= request.getContextPath() %>/images/contact/gaming.jpg" alt="">
 			<div class="intro-text left-0 text-center bg-faded p-5 rounded">
 				<h2 class="section-heading mb-4">
 					<span class="section-heading-upper">聯絡我們</span>
@@ -129,26 +134,26 @@
 		<h1 class="text-white text-left">選購產品</h1>
 		<div class="row">
 			<div class="col" id="catelog"
-				style="background-image: url('../images/contact/hs.jpg')">
-				<span class="title">耳機</span> <a href="../pages/headset.jsp"><button
-						type="button" class="btn btn-dark buy">選購耳機</button></a>
+				style="background-image: url('<%= request.getContextPath() %>/images/contact/hs.jpg')">
+				<span class="title">耳機</span> <a href="<%= request.getContextPath() %>/pages/headset.jsp"><button
+						type="button" class="btn buy">選購耳機</button></a>
 			</div>
 			<div class="col" id="catelog"
-				style="background-image: url('../images/contact/kb.jpg')">
-				<span class="title">鍵盤</span> <a href="../pages/index.jsp"><button
-						type="button" class="btn btn-dark buy">選購鍵盤</button></a>
+				style="background-image: url('<%= request.getContextPath() %>/images/contact/kb.jpg')">
+				<span class="title">鍵盤</span> <a href="<%= request.getContextPath() %>/pages/index.jsp"><button
+						type="button" class="btn buy">選購鍵盤</button></a>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col" id="catelog"
-				style="background-image: url('../images/contact/hs.jpg')">
-				<span class="title">滑鼠</span> <a href="../pages/mouse.jsp"><button
-						type="button" class="btn btn-dark buy">選購滑鼠</button></a>
+				style="background-image: url('<%= request.getContextPath() %>/images/contact/hs.jpg')">
+				<span class="title">滑鼠</span> <a href="<%= request.getContextPath() %>/pages/mouse.jsp"><button
+						type="button" class="btn buy">選購滑鼠</button></a>
 			</div>
 			<div class="col" id="catelog"
-				style="background-image: url('../images/contact/mp.jpg')">
-				<span class="title">聯繫我們</span> <a href="../pages/contact.jsp"><button
-						type="button" class="btn btn-dark buy">聯繫我們</button></a>
+				style="background-image: url('<%= request.getContextPath() %>/images/contact/mp.jpg')">
+				<span class="title">聯繫我們</span> <a href="<%= request.getContextPath() %>/pages/contact.jsp"><button
+						type="button" class="btn buy">聯繫我們</button></a>
 			</div>
 		</div>
 	</div>
@@ -175,19 +180,41 @@
 	<div id="wrapper">
         <div id="sidebar-wrapper">
         	<div class="container">
-	        	<h1 class="text-left text-primary y-2">購物車<small>(商品)</small></h1>
-	        	<p class="text-center py-2">您的購物車尚無商品</p>
-	            <a href="../pages/index.jsp"><button type="button" class="btn btn-info btn-block">開始購物</button></a>
+	        	<h1 class="text-left text-primary y-2">購物車<small>(商品)</small></h1>	        	
+	            <c:if test="${!empty mycart }">
+	            	<table class="table table-dark">
+	        		<tr>
+	        			<td>產品編號</td>
+	        			<td>產品名稱</td>
+	        			<td>售價</td>
+	        		</tr>
+	        		<c:forEach var="info" items="${userlist}">
+	        		<tr>
+	        			<td>${info.pid}</td>
+	        			<td>${info.name}</td>
+	        			<td>${info.price}</td>
+	        		</tr>
+	        		</c:forEach>
+	        		</table>
+	        		<c:if test="${empty userlist }">
+	        			<p class="text-center py-2">您的購物車尚無商品</p>
+		            	<a href="<%= request.getContextPath() %>/pages/index.jsp"><button type="button" class="btn btn-info btn-block">開始購物</button></a>
+		            </c:if>
+	        		<c:if test="${!empty userlist}">
+	        			<p class="text-dark text-left">商品總價格:${totalPrice}</p>
+	        			<a class="btn btn-info btn-block" href="<%= request.getContextPath() %>/pages/checkout.jsp">前往結帳</a>
+	        		</c:if>  
+	            </c:if>
             </div>
         </div>
     </div>
 	<!-- Bootstrap core JavaScript -->
-	<script src="../vendor/jquery/jquery.min.js"></script>
-	<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/jquery/jquery.min.js"></script>
+	<script src="<%= request.getContextPath() %>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<!-- 加載FB API -->
 	<script src="http://connect.facebook.net/zh_TW/all.js"></script>
 	<!-- 通用JS -->
-	<script type="text/javascript" src="../js/myjs/global.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/myjs/global.js"></script>
 	<script>
 		$(document).ready(function() {
 			//取得控項

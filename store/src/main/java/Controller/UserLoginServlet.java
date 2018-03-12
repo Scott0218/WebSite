@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,6 +13,8 @@ import javax.servlet.http.HttpSession;
 import com.store.Model.Services.UserInterServices;
 import com.store.Model.Services.UserServices;
 
+import Tools.MyCart;
+import Tools.MyTools;
 import demo.model.Members;
 
 /**
@@ -36,28 +37,30 @@ public class UserLoginServlet extends HttpServlet {
 		//接收資料
 		String uid = request.getParameter("userId");
 		String pwd = request.getParameter("userPwd");
-		String hql = "from Members where Mid=? and Pwd=?";
-		String parameters[] ={uid,pwd}; 
+		MyTools tools = new MyTools();
+		String upwd = tools.md5(pwd);
 		//checkUser
 		UserInterServices uis = new UserServices();
-		List<Members> list = uis.check(hql, parameters);
+		Members member = uis.checkUser(uid,upwd);
 		
-		for(Members a:list){
-			System.out.println(a.getName() + "\r\n" + a.getEmail());
-		}
 		//導向畫面
 		response.setCharacterEncoding("text/html;charset=utf-8");
 		
 		String path = request.getContextPath();
-		if(!list.isEmpty()&&list.size()==1){
+		if(member!=null){
 			HttpSession session = request.getSession();
-			session.setAttribute("user", list);				
+			//user存放的是會員資料
+			session.setAttribute("user", member);
+			//登入後創建購物車
+			MyCart mycart = new MyCart();
+			session.setAttribute("mycart",mycart);
+			System.out.println(mycart);
 			response.sendRedirect(path+"/pages/index.jsp");
 			System.out.println("登入成功!!");
-		}else if(list.size()==0){
+		}else if(member==null){
 			//錯誤畫面
 			System.out.println("error");
-			response.sendRedirect(path+"/pages/UserLoginError.jsp");
+			response.sendRedirect(path+"/pages/loginErrorPage.jsp");
 		}
 		
 		

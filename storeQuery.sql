@@ -162,3 +162,6 @@ content NVARCHAR(50),
 senderTime DATETIME NOT NULL,
 PRIMARY KEY (num)
 )
+
+--模擬git衝突
+--HelloWorld
